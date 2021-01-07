@@ -5,6 +5,7 @@ categories:
  - jekyll
 tags:
  - sample
+ - jekyll
 ---
 Some update
 
