@@ -1,7 +1,9 @@
 main:
-    - title: "블로그 방문하기"
+    - title: "Home"
       url: https://webtk.github.io
     - title: "Categories"
       url: /categories/
+    - title: "Tags"
+      url: /tags/
     - title: "About"
       url: /about/
