@@ -1,4 +1,4 @@
-name: Build Documentation
+name: Build and Deploy Documentation
 on:
     pull_request:
     push:
@@ -14,6 +14,7 @@ env:
 
 jobs:
     build-doc:
+        name: Build Documentation
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
@@ -37,30 +38,6 @@ jobs:
             - name: Build Documentation
               run: |
                 make -C doc html
-            
-            - name: Tar build
-              run: tar -czvf doc-build.tar.gz doc/build/
-            
-            - name: Upload Documentation
-              uses: actions/upload-artifact@v2
-              with:
-                  name: doc-build
-                  path: doc-build.tar.gz
-    deploy:
-        name: Publish Documentation
-        runs-on: ubuntu-latest
-        needs: build-doc
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        steps:
-            - uses: actions/checkout@v4
-
-            - uses: actions/download-artifact@v4
-              with:
-                name: doc-build
-                path: .
-            
-            - name: UnTar build
-              run: tar -xzvf doc-build.tar.gz
             
             - name: Deploy to GH Pages
               uses: peaceiris/actions-gh-pages@v3
