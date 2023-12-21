@@ -40,7 +40,9 @@ jobs:
                 make -C doc html
             
             - name: Deploy to GH Pages
-              uses: peaceiris/actions-gh-pages@v3
+              uses: JamesIves/github-pages-deploy-action@4.1.4
               with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./doc/build/html
+                  token: ${{ secrets.ACCESS_TOKEN }}
+                  branch: gh-pages
+                  folder: doc/build/html
+                  clean: true
