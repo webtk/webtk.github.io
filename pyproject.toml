@@ -1,0 +1,6 @@
+[tool.poetry]
+name = "webtk.github.io"
+version = "0.0.1"
+description = ""
+authors = ["Taekyung Lee"]
+readme = "README.md"
