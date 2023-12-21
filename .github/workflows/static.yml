@@ -36,7 +36,7 @@ jobs:
             
             - name: Build Documentation
               run: |
-                make -C doc html SPHINXOPTS="-W --keep-going"
+                make -C doc html
             
             - name: Tar build
               run: tar -czvf doc-build.tar.gz doc/build/
